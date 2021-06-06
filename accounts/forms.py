@@ -15,15 +15,6 @@ class EdFlixUserAuthenticationForm(forms.Form):
     def save(self, commit=True):
         username = self.cleaned_data['username']
         password = self.cleaned_data['password']
-        # regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
-
-        # if(re.search(regex,usernameOrEmail)):
-        #     username = User.objects.get(email = usernameOrEmail)
-        #     user = authenticate(
-        #         username = username,
-        #         password = password
-        #     )
-        # else:
         user = authenticate(
             username = username,
             password = password
