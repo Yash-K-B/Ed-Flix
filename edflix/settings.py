@@ -27,7 +27,7 @@ SECRET_KEY = 'k9j5#4qr!wmn%c_9&mxjhuzve5p-++kf0hvseqdwkccn)r)i=j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1','edflix5.pythonanywhere.com','yashobanta027.pythonanywhere.com']
+ALLOWED_HOSTS = ['localhost','127.0.0.1','edflix5.pythonanywhere.com','edflix.herokuapp.com','yashobanta027.pythonanywhere.com']
 
 
 # Application definition
