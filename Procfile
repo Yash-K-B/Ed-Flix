@@ -1,1 +1,1 @@
-web:  gunicorn edflix.config.settings.wsgi
+web:  gunicorn edflix.wsgi
