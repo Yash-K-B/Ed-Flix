@@ -1,6 +1,6 @@
 from accounts.models import DocViews
 from django.http.response import HttpResponse
-from .models import FileUpload, SubjectToSubjectCode
+from .models import FileUpload
 from django.contrib  import auth
 from django.contrib.auth.decorators import login_required
 from django.core.files.storage import FileSystemStorage
@@ -108,7 +108,6 @@ def signout(request):
 @login_required(login_url="login")
 def upload_file(request):
     if request.method == "POST" and request.FILES['file']:
-        print("Upload -------------------------")
         file = request.FILES['file']
         fs = FileSystemStorage("static/contents")
         file.name = file.name.replace(" ","_")
@@ -124,16 +123,11 @@ def upload_file(request):
         print(documentType)
 
         subject_code = re.search("\((.*)\)", subject).group(1)
-
-        subjectCodeM = SubjectToSubjectCode(subject_code = subject_code,subject=subject)
-        subjectCodeM.save()
     
         #request.build_absolute_uri('/')[:-1] + "/static/contents" +
         file_text = processPdf( fs.location + uploaded_file_url,"eng")
-        fileUpload = FileUpload(title = title,subtitle=subtitle, author = author, documentType = documentType,file_text = file_text,file_location=request.build_absolute_uri('/')[:-1] + "/static/contents" + uploaded_file_url,file_size=longToSizeString(file.size),file_name=file.name,subject_code = subject_code)
+        fileUpload = FileUpload(title = title,subtitle=subtitle, author = author, subject=subject,documentType = documentType,file_text = file_text,file_location=request.build_absolute_uri('/')[:-1] + "/static/contents" + uploaded_file_url,file_size=longToSizeString(file.size),file_name=file.name,subject_code = subject_code)
         fileUpload.save()
-
-        print(fileUpload.toStr())
         
         reply = {"success" : "file uploaded successfully","file-url": uploaded_file_url}
         return JsonResponse(reply)

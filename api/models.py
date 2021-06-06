@@ -9,6 +9,7 @@ class FileUpload(models.Model,dict):
     title = models.CharField(max_length=100)
     subtitle = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
+    subject = models.CharField(max_length=100)
     subject_code = models.CharField(max_length=15)
     DOCUMENT_CHOICES = (
         ('N', 'Notes'),
@@ -28,6 +29,7 @@ class FileUpload(models.Model,dict):
             "title" : self.title,
             "subtitle" : self.subtitle,
             "author" : self.author,
+            "subject" : self.subject,
             "subject_code" : self.subject_code,
             "documentType" : self.documentType,
             "file_name" : self.file_name, 
@@ -35,11 +37,5 @@ class FileUpload(models.Model,dict):
             "location" : self.file_location
         }
         return str(text)
-
-
-
-class SubjectToSubjectCode(models.Model):
-    subject_code = models.CharField(max_length=15,primary_key=True)
-    subject = models.CharField(max_length=100)
 
 
