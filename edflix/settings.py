@@ -147,14 +147,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
 STATIC_URL = '/static/'
 
-# Extra places for collectstatic to find static files.
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'static'),
-# )
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
+#     '/var/www/static/',
+# ]
 
 
 LOGIN_REDIRECT_URL="/"
@@ -168,3 +166,6 @@ EMAIL_HOST_PASSWORD = "testingcompany" #password associated with above email-id
 
 
 django_heroku.settings(locals())
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
