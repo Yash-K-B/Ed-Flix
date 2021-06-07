@@ -8286,3 +8286,4 @@ abhi/Scripts/pip3.9.exe
 abhi/Scripts/pip3.exe
 abhi/Scripts/pythonw.exe
 abhi/Scripts/sqlformat.exe
+db.sqlite3

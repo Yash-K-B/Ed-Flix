@@ -158,11 +158,11 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL="/"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'smtp.mailgun.org'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = "yashtestingcompany@gmail.com" #sender's email-id 
-EMAIL_HOST_PASSWORD = "testingcompany" #password associated with above email-id 
+EMAIL_HOST_USER = "postmaster@sandbox70e98466498d4684b3f8aa8bb6a1b4b3.mailgun.org" #sender's email-id 
+EMAIL_HOST_PASSWORD = "78177250fb4f44fbc2ea12fb83e6661e-90ac0eb7-eeb74124" #password associated with above email-id 
 
 
 django_heroku.settings(locals())
